@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Identify_Person" sap:VirtualizedContainerService.HintSize="496,517.333333333333" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Identify_Person" sap:VirtualizedContainerService.HintSize="574.666666666667,939.333333333333" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="21">
+    <scg:List x:TypeArguments="x:String" Capacity="42">
       <x:String>System</x:String>
       <x:String>System.Collections</x:String>
       <x:String>System.Collections.Generic</x:String>
@@ -22,10 +22,11 @@
       <x:String>DocumentFormat.OpenXml.Drawing.Charts</x:String>
       <x:String>DocumentFormat.OpenXml.Office2013.Drawing.ChartStyle</x:String>
       <x:String>System.Xml.Serialization</x:String>
+      <x:String>CsvHelper.TypeConversion</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
@@ -44,42 +45,106 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>CsvHelper</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="identifyOrganization" sap:VirtualizedContainerService.HintSize="476,610" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="identifyOrganization" sap:VirtualizedContainerService.HintSize="476,1851.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="organizationName" />
+      <Variable x:TypeArguments="x:String" Name="organizationNameInput" />
+      <Variable x:TypeArguments="x:String" Name="outputRangeRowColumn" />
+      <Variable x:TypeArguments="x:String" Name="organizationNameOutput" />
+      <Variable x:TypeArguments="x:String" Name="outputRange" />
+      <Variable x:TypeArguments="ui:WorkbookApplication" Name="Workbook" />
+      <Variable x:TypeArguments="ui:WorkbookApplication" Name="workbookOpen" />
+      <Variable x:TypeArguments="x:String" Name="organizationAddress" />
+      <Variable x:TypeArguments="x:String" Name="commercialRegister" />
+      <Variable x:TypeArguments="x:Double" Name="numberOfEmployees" />
+      <Variable x:TypeArguments="x:String" Name="industryBranch" />
+      <Variable x:TypeArguments="x:String" Name="nameOfBusinessPartner" />
+      <Variable x:TypeArguments="x:String" Name="nationalityOfBusinessPartner" />
+      <Variable x:TypeArguments="x:String" Name="functionOfBusinessPartner" />
+      <Variable x:TypeArguments="x:String" Name="addressOfBusinessPartner" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog Options="{x:Null}" DisplayName="Name of Organization" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please enter the full name of the organization" Title="Name of organization">
+    <ui:InputDialog Options="{x:Null}" DisplayName="Name of Organization" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please enter the name of the organization." Title="Name of organization">
       <ui:InputDialog.Result>
-        <OutArgument x:TypeArguments="x:String">[organizationName]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[organizationNameInput]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Reads Data from Excel file" sap:VirtualizedContainerService.HintSize="434,386" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Reads Data from Excel file" sap:VirtualizedContainerService.HintSize="434,487.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" Workbook="[workbookOpen]" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="376,277.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="outputRange" />
-            </Sequence.Variables>
+          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="376,378.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelLookUpRange DisplayName="Find organization" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelLookUpRange_2" Range="A:A" Result="[outputRange]" SheetName="Sheet1" Value="[organizationName]" />
-            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[outputRange]" />
+            <ui:ExcelLookUpRange DisplayName="Find organization" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelLookUpRange_2" Range="A:A" Result="[outputRangeRowColumn]" SheetName="Sheet1" Value="[organizationNameInput]" />
+            <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[outputRange]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[outputRangeRowColumn.Substring(1)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_2" Workbook="[workbookOpen]" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
+    <ui:ReadCell Cell="[&quot;A&quot;+outputRange]" DisplayName="name of organization" sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadCell_2" SheetName="Sheet1" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:String">[organizationNameOutput]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="[&quot;B&quot;+outputRange]" DisplayName="address of organization" sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadCell_3" SheetName="Sheet1" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:String">[organizationAddress]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="[&quot;C&quot;+outputRange]" DisplayName="commercial register" sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadCell_4" SheetName="Sheet1" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:String">[commercialRegister]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="[&quot;D&quot;+outputRange]" DisplayName="number of employees" sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadCell_5" SheetName="Sheet1" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[numberOfEmployees]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="[&quot;E&quot;+outputRange]" DisplayName="industry branch" sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadCell_6" SheetName="Sheet1" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:String">[industryBranch]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="[&quot;F&quot;+outputRange]" DisplayName="name of business partner" sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadCell_7" SheetName="Sheet1" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:String">[nameOfBusinessPartner]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="[&quot;G&quot;+outputRange]" DisplayName="address of business partner" sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadCell_8" SheetName="Sheet1" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:String">[addressOfBusinessPartner]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="[&quot;H&quot;+outputRange]" DisplayName="nationality of business partner" sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadCell_9" SheetName="Sheet1" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:String">[nationalityOfBusinessPartner]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="[&quot;I&quot;+outputRange]" DisplayName="function " sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadCell_10" SheetName="Sheet1" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:String">[functionOfBusinessPartner]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
   </Sequence>
 </Activity>
