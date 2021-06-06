@@ -3,7 +3,7 @@
   "description": "KYC-Prozess für Robotic Process Automation (Bulkin) SoSe 2021",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.7.2]",
+    "UiPath.Excel.Activities": "[2.10.4]",
     "UiPath.Mail.Activities": "[1.7.2]",
     "UiPath.System.Activities": "[19.10.1]",
     "UiPath.UIAutomation.Activities": "[19.11.3]"
@@ -29,7 +29,8 @@
     "libraryOptions": {
       "includeOriginalXaml": false,
       "privateWorkflows": []
-    }
+    },
+    "fileInfos": []
   },
   "expressionLanguage": "VisualBasic"
 }

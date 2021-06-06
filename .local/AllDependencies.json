@@ -32,13 +32,18 @@
           "lib/net40/ClosedXML.dll": {}
         }
       },
-      "CsvHelper/2.13.5": {
+      "CsvHelper/15.0.5": {
         "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "System.Threading.Tasks.Extensions": "4.5.2",
+          "System.ValueTuple": "4.4.0"
+        },
         "compile": {
-          "lib/net40-client/_._": {}
+          "lib/net45/_._": {}
         },
         "runtime": {
-          "lib/net40-client/CsvHelper.dll": {}
+          "lib/net45/CsvHelper.dll": {}
         }
       },
       "DocumentFormat.OpenXml/2.5.0": {
@@ -137,6 +142,18 @@
           "lib/net45/Microsoft.AspNet.SignalR.Client.dll": {}
         }
       },
+      "Microsoft.CSharp/4.5.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp"
+        ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
       "Microsoft.Exchange.WebServices/2.2.0": {
         "type": "package",
         "compile": {
@@ -166,13 +183,13 @@
           "lib/net461/Microsoft.Rest.ClientRuntime.dll": {}
         }
       },
-      "Microsoft.VisualStudio.OLE.Interop/7.10.6071": {
+      "Microsoft.VisualStudio.OLE.Interop/16.7.30328.74": {
         "type": "package",
         "compile": {
-          "lib/_._": {}
+          "lib/net45/_._": {}
         },
         "runtime": {
-          "lib/Microsoft.VisualStudio.OLE.Interop.dll": {}
+          "lib/net45/Microsoft.VisualStudio.OLE.Interop.dll": {}
         }
       },
       "Newtonsoft.Json/11.0.2": {
@@ -208,6 +225,27 @@
           "lib/net45/ICSharpCode.SharpZipLib.dll": {}
         }
       },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
+        }
+      },
       "System.ValueTuple/4.5.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -233,21 +271,26 @@
           "build/_._": {}
         }
       },
-      "UiPath.Excel.Activities/2.7.2": {
+      "UiPath.Excel.Activities/2.10.4": {
         "type": "package",
         "dependencies": {
           "ClosedXML": "0.87.1",
-          "CsvHelper": "2.13.5",
+          "CsvHelper": "15.0.5",
           "DocumentFormat.OpenXml": "2.5.0",
-          "Microsoft.VisualStudio.OLE.Interop": "7.10.6071",
+          "Microsoft.VisualStudio.OLE.Interop": "16.7.30328.74",
           "NPOI": "2.4.1",
           "SharpZipLib": "1.0.0"
         },
+        "frameworkAssemblies": [
+          "System.Activities",
+          "System.Activities.Presentation"
+        ],
         "compile": {
           "lib/net461/_._": {}
         },
         "runtime": {
           "lib/net461/UiPath.Excel.Activities.Design.dll": {},
+          "lib/net461/UiPath.Excel.Activities.Package.dll": {},
           "lib/net461/UiPath.Excel.Activities.dll": {},
           "lib/net461/UiPath.Excel.dll": {}
         },
@@ -871,26 +914,23 @@
         "lib/net40/ClosedXML.xml"
       ]
     },
-    "CsvHelper/2.13.5": {
-      "sha512": "fC8DPi/YTcZ8uXFiAeuT9EpsR2TE5cSJ2jg/4tht/Oen6az/djebpYoCQEtI33RfNrSZ533SedOknlWtUTX3fw==",
+    "CsvHelper/15.0.5": {
+      "sha512": "HPoE5nASoFXqoXKSi5yEBam7TzDrtC8WESA4xq53JtPKV8Mm+IKRuN+FJyMoJg1Whv/NG4JiCUs9yUcaSY/ziQ==",
       "type": "package",
-      "path": "csvhelper/2.13.5",
+      "path": "csvhelper/15.0.5",
       "files": [
         ".nupkg.metadata",
-        "csvhelper.2.13.5.nupkg.sha512",
+        "Icon.png",
+        "csvhelper.15.0.5.nupkg.sha512",
         "csvhelper.nuspec",
-        "lib/net20/CsvHelper.dll",
-        "lib/net20/CsvHelper.pdb",
-        "lib/net20/CsvHelper.xml",
-        "lib/net35-client/CsvHelper.dll",
-        "lib/net35-client/CsvHelper.pdb",
-        "lib/net35-client/CsvHelper.xml",
-        "lib/net40-client/CsvHelper.dll",
-        "lib/net40-client/CsvHelper.pdb",
-        "lib/net40-client/CsvHelper.xml",
-        "lib/portable-net40+sl5+win8+wpa+wp8/CsvHelper.dll",
-        "lib/portable-net40+sl5+win8+wpa+wp8/CsvHelper.pdb",
-        "lib/portable-net40+sl5+win8+wpa+wp8/CsvHelper.xml"
+        "lib/net45/CsvHelper.dll",
+        "lib/net45/CsvHelper.xml",
+        "lib/net47/CsvHelper.dll",
+        "lib/net47/CsvHelper.xml",
+        "lib/netstandard2.0/CsvHelper.dll",
+        "lib/netstandard2.0/CsvHelper.xml",
+        "lib/netstandard2.1/CsvHelper.dll",
+        "lib/netstandard2.1/CsvHelper.xml"
       ]
     },
     "DocumentFormat.OpenXml/2.5.0": {
@@ -984,6 +1024,74 @@
         "microsoft.aspnet.signalr.client.nuspec"
       ]
     },
+    "Microsoft.CSharp/4.5.0": {
+      "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
+      "type": "package",
+      "path": "microsoft.csharp/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/Microsoft.CSharp.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.3/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/uap10.0.16299/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "microsoft.csharp.4.5.0.nupkg.sha512",
+        "microsoft.csharp.nuspec",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/Microsoft.CSharp.dll",
+        "ref/netcore50/Microsoft.CSharp.xml",
+        "ref/netcore50/de/Microsoft.CSharp.xml",
+        "ref/netcore50/es/Microsoft.CSharp.xml",
+        "ref/netcore50/fr/Microsoft.CSharp.xml",
+        "ref/netcore50/it/Microsoft.CSharp.xml",
+        "ref/netcore50/ja/Microsoft.CSharp.xml",
+        "ref/netcore50/ko/Microsoft.CSharp.xml",
+        "ref/netcore50/ru/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/Microsoft.CSharp.dll",
+        "ref/netstandard1.0/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
+        "ref/netstandard2.0/Microsoft.CSharp.dll",
+        "ref/netstandard2.0/Microsoft.CSharp.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/uap10.0.16299/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "Microsoft.Exchange.WebServices/2.2.0": {
       "sha512": "NlkaTD0uWtg9VbiWq0VDWMBPzHFknH3tmstrxt0acrT09LBGqATTjRpsGOODz6tUdX7/dehBinxsf75U5Uw/+A==",
       "type": "package",
@@ -1027,15 +1135,20 @@
         "microsoft.rest.clientruntime.nuspec"
       ]
     },
-    "Microsoft.VisualStudio.OLE.Interop/7.10.6071": {
-      "sha512": "PuINhJH41DbKfkNU+qcyC4Wlt/z0DgI/ViZv6gjUclylnFbUIpCdqm4fK+PKJDfiarHTKnGWkxjKuOIS1Bqs5Q==",
+    "Microsoft.VisualStudio.OLE.Interop/16.7.30328.74": {
+      "sha512": "82RWNPPaQRfFlEtkRQZgSo16a6WpHgL2gfeXbo/ISFHHJWNg/vtyKQrAW7iAsDNp5f3uiZP+9pQWxShAFrlbMw==",
       "type": "package",
-      "path": "microsoft.visualstudio.ole.interop/7.10.6071",
+      "path": "microsoft.visualstudio.ole.interop/16.7.30328.74",
       "files": [
         ".nupkg.metadata",
-        "lib/Microsoft.VisualStudio.OLE.Interop.dll",
-        "lib/Microsoft.VisualStudio.OLE.Interop.xml",
-        "microsoft.visualstudio.ole.interop.7.10.6071.nupkg.sha512",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "PackageIcon.png",
+        "lib/net45/Microsoft.VisualStudio.OLE.Interop.dll",
+        "lib/net45/Microsoft.VisualStudio.OLE.Interop.xml",
+        "lib/netstandard2.0/Microsoft.VisualStudio.OLE.Interop.dll",
+        "lib/netstandard2.0/Microsoft.VisualStudio.OLE.Interop.xml",
+        "microsoft.visualstudio.ole.interop.16.7.30328.74.nupkg.sha512",
         "microsoft.visualstudio.ole.interop.nuspec"
       ]
     },
@@ -1114,6 +1227,66 @@
         "lib/netstandard2.0/ICSharpCode.SharpZipLib.xml",
         "sharpziplib.1.0.0.nupkg.sha512",
         "sharpziplib.nuspec"
+      ]
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "sha512": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+      "type": "package",
+      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Threading.Tasks.Extensions/4.5.2": {
+      "sha512": "BG/TNxDFv0svAzx8OiMXDlsHfGw623BZ8tCXw4YLhDFDvDhNUEV58jKYMGRnkbJNm7c3JNNJDiN7JBMzxRBR2w==",
+      "type": "package",
+      "path": "system.threading.tasks.extensions/4.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard1.0/System.Threading.Tasks.Extensions.xml",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.xml",
+        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/netcoreapp2.1/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.threading.tasks.extensions.4.5.2.nupkg.sha512",
+        "system.threading.tasks.extensions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.ValueTuple/4.5.0": {
@@ -1212,14 +1385,15 @@
         "uipath.nuspec"
       ]
     },
-    "UiPath.Excel.Activities/2.7.2": {
-      "sha512": "wmOu6H+JPigFH6fO7mZTpH6xLYB14PUWprAtNsrjtu6zt1QUUcTHxjFq3d3HgK8vsERc0ZyoVUhIvqskxFScUQ==",
+    "UiPath.Excel.Activities/2.10.4": {
+      "sha512": "nKDG6X8qQJhsP1LZ0E6+VZU5c3YIBu5ibsyMf0MzeSlsTo9t+O2pyQzhKPw2MnyDboG62FrwLSk1wX1iLaizqA==",
       "type": "package",
-      "path": "uipath.excel.activities/2.7.2",
+      "path": "uipath.excel.activities/2.10.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net461/UiPath.Excel.Activities.Design.dll",
+        "lib/net461/UiPath.Excel.Activities.Package.dll",
         "lib/net461/UiPath.Excel.Activities.dll",
         "lib/net461/UiPath.Excel.dll",
         "lib/net461/de/UiPath.Excel.Activities.Design.resources.dll",
@@ -1255,7 +1429,7 @@
         "lib/net461/zh-CN/UiPath.Excel.Activities.Design.resources.dll",
         "lib/net461/zh-CN/UiPath.Excel.Activities.resources.dll",
         "lib/net461/zh-CN/UiPath.Excel.resources.dll",
-        "uipath.excel.activities.2.7.2.nupkg.sha512",
+        "uipath.excel.activities.2.10.4.nupkg.sha512",
         "uipath.excel.activities.nuspec"
       ]
     },
@@ -1585,22 +1759,22 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
-      "UiPath.Excel.Activities >= 2.7.2 <= 2.7.2",
+      "UiPath.Excel.Activities >= 2.10.4 <= 2.10.4",
       "UiPath.Mail.Activities >= 1.7.2 <= 1.7.2",
       "UiPath.System.Activities >= 19.10.1 <= 19.10.1",
       "UiPath.UIAutomation.Activities >= 19.11.3 <= 19.11.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Marc\\.nuget\\packages\\": {}
+    "C:\\Users\\lisar\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Know Your Customer",
       "projectName": "Know Your Customer",
-      "projectPath": "C:\\Users\\Marc\\Documents\\UiPath\\Know Your Customer\\.local",
-      "packagesPath": "C:\\Users\\Marc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marc\\Documents\\UiPath\\Know Your Customer\\.local"
+      "projectPath": "C:\\Users\\lisar\\OneDrive\\Dokumente\\UiPath\\RPA-SoSe2021-Team6\\.local",
+      "packagesPath": "C:\\Users\\lisar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lisar\\OneDrive\\Dokumente\\UiPath\\RPA-SoSe2021-Team6\\.local"
     },
     "frameworks": {
       "net461": {
@@ -1608,7 +1782,7 @@
           "UiPath.Excel.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[2.7.2, 2.7.2]"
+            "version": "[2.10.4, 2.10.4]"
           },
           "UiPath.Mail.Activities": {
             "include": "Runtime",
@@ -1628,5 +1802,28 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU3034",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Runtime.CompilerServices.Unsafe 4.5.2' from source 'https://www.myget.org/F/workflow/': This package is signed but not by a trusted signer.",
+      "libraryId": "System.Runtime.CompilerServices.Unsafe"
+    },
+    {
+      "code": "NU3034",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Threading.Tasks.Extensions 4.5.2' from source 'https://api.nuget.org/v3/index.json': This package is signed but not by a trusted signer.",
+      "libraryId": "System.Threading.Tasks.Extensions"
+    },
+    {
+      "code": "NU3034",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.CSharp 4.5.0' from source 'https://www.myget.org/F/workflow/': This package is signed but not by a trusted signer.",
+      "libraryId": "Microsoft.CSharp"
+    }
+  ]
 }
