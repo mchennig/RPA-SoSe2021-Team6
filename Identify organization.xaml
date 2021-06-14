@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Identify_Person" sap:VirtualizedContainerService.HintSize="574.666666666667,939.333333333333" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Identify_Person" sap:VirtualizedContainerService.HintSize="496,1997.33333333333" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
       <x:String>System</x:String>
@@ -48,7 +48,7 @@
       <AssemblyReference>CsvHelper</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="identifyOrganization" sap:VirtualizedContainerService.HintSize="476,1851.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="In this workflow you pass the name of the company you want to check. The data about the company is read from an Excel-Sheet and stored in variables." DisplayName="identifyOrganization" sap:VirtualizedContainerService.HintSize="476,1897.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="organizationNameInput" />
       <Variable x:TypeArguments="x:String" Name="outputRangeRowColumn" />
@@ -68,6 +68,7 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:InputDialog Options="{x:Null}" DisplayName="Name of Organization" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please enter the name of the organization." Title="Name of organization">
@@ -75,20 +76,20 @@
         <OutArgument x:TypeArguments="x:String">[organizationNameInput]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Reads Data from Excel file" sap:VirtualizedContainerService.HintSize="434,487.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" Workbook="[workbookOpen]" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Reads Data from Excel file" sap:VirtualizedContainerService.HintSize="434,488" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" Workbook="[workbookOpen]" WorkbookPath="C:\Users\lisar\Downloads\Mockdaten unternehmen.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="376,378.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="Finds full name of organization and its cell " sap:VirtualizedContainerService.HintSize="376,379.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:ExcelLookUpRange DisplayName="Find organization" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelLookUpRange_2" Range="A:A" Result="[outputRangeRowColumn]" SheetName="Sheet1" Value="[organizationNameInput]" />
-            <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[outputRange]</OutArgument>
               </Assign.To>

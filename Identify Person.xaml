@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Identify_Person" sap:VirtualizedContainerService.HintSize="396,904" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Identify_Person" sap:VirtualizedContainerService.HintSize="396,966" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="18">
       <x:String>System</x:String>
@@ -39,7 +39,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="identifyPerson" sap:VirtualizedContainerService.HintSize="376,844" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="In this workflow you put in all the information you habe about the legal person you want to check. The values will be saved in variables." DisplayName="identifyPerson" sap:VirtualizedContainerService.HintSize="376,906" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="firstName" />
       <Variable x:TypeArguments="x:String" Name="surname" />
@@ -51,34 +51,35 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please choose a gender." Options="[{&quot;Mr.&quot;,&#xA;&quot;Mrs&quot;,&#xA;&quot;Mx&quot;}]" Title="Salutation">
+    <ui:InputDialog DisplayName="Gender" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please choose a gender." Options="[{&quot;Mr.&quot;,&#xA;&quot;Mrs&quot;,&#xA;&quot;Mx&quot;}]" Title="Salutation">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[gender]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:InputDialog Options="{x:Null}" DisplayName="Name" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Please enter the first name of the person." Title="First name">
+    <ui:InputDialog Options="{x:Null}" DisplayName="First Name " sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Please enter the first name of the person." Title="First name">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[firstName]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_3" IsPassword="False" Label="Please enter the surname of the person." Title="Surname">
+    <ui:InputDialog Options="{x:Null}" DisplayName="Surname" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_3" IsPassword="False" Label="Please enter the surname of the person." Title="Surname">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[surname]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Please enter your place of residence." Title="Place of residence">
+    <ui:InputDialog Options="{x:Null}" DisplayName="Place of Residence" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Please enter your place of residence." Title="Place of residence">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[placeOfResidence]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="Please enter your birth date." Title="Date of birth">
+    <ui:InputDialog Options="{x:Null}" DisplayName="Date of birth" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="Please enter your birth date." Title="Date of birth">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[birthDate]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Please enter your nationality." Title="Nationality">
+    <ui:InputDialog Options="{x:Null}" DisplayName="Nationality" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Please enter your nationality." Title="Nationality">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[nationality]</OutArgument>
       </ui:InputDialog.Result>
