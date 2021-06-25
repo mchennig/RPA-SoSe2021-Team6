@@ -1,4 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Identify_Person" sap:VirtualizedContainerService.HintSize="396,966" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Identify_Person" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="firstName" Type="OutArgument(x:String)" />
+    <x:Property Name="lastName" Type="OutArgument(x:String)" />
+    <x:Property Name="nationality" Type="OutArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>396,961</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="18">
       <x:String>System</x:String>
@@ -39,14 +46,11 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="In this workflow you put in all the information you habe about the legal person you want to check. The values will be saved in variables." DisplayName="identifyPerson" sap:VirtualizedContainerService.HintSize="376,906" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="In this workflow you put in all the information you habe about the legal person you want to check. The values will be saved in variables." DisplayName="identifyPerson" sap:VirtualizedContainerService.HintSize="376,901" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="firstName" />
-      <Variable x:TypeArguments="x:String" Name="surname" />
       <Variable x:TypeArguments="x:String" Name="gender" />
       <Variable x:TypeArguments="x:String" Name="placeOfResidence" />
       <Variable x:TypeArguments="x:String" Name="birthDate" />
-      <Variable x:TypeArguments="x:String" Name="nationality" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -66,7 +70,7 @@
     </ui:InputDialog>
     <ui:InputDialog Options="{x:Null}" DisplayName="Surname" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_3" IsPassword="False" Label="Please enter the surname of the person." Title="Surname">
       <ui:InputDialog.Result>
-        <OutArgument x:TypeArguments="x:String">[surname]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[lastName]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
     <ui:InputDialog Options="{x:Null}" DisplayName="Place of Residence" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Please enter your place of residence." Title="Place of residence">
