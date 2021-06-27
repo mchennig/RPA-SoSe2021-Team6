@@ -139,8 +139,8 @@
               <InArgument x:TypeArguments="x:String" x:Key="firstName">[firstName]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="lastName">[lastName]</InArgument>
               <InArgument x:TypeArguments="x:Single" x:Key="confidenceLevel">90</InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="riskLevel" />
-              <OutArgument x:TypeArguments="x:String" x:Key="riskReason" />
+              <OutArgument x:TypeArguments="x:String" x:Key="riskLevel">[ofacRiskLevel]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="riskReason">[ofacRiskReason]</OutArgument>
               <InArgument x:TypeArguments="x:Boolean" x:Key="isIndividual">True</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
