@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1315,3540</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1445,2821</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>EU_Sanctionlist_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -66,7 +66,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Checks the list of EU sanctions for possible matches." DisplayName="EU Sanctionlist" sap:VirtualizedContainerService.HintSize="1425,2860" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Checks the list of EU sanctions for possible matches." DisplayName="EU Sanctionlist" sap:VirtualizedContainerService.HintSize="1425,2721" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="C:\Users\Marc\Downloads\eu_sanctions.xml" Name="sanctionFile" />
       <Variable x:TypeArguments="x:String" Default="https://webgate.ec.europa.eu/europeaid/fsd/fsf/public/files/xmlFullSanctionsList_1_1/content?token=dG9rZW4tMjAxNw" Name="sanctionUrl" />
@@ -82,7 +82,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="1383,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+    <Assign DisplayName="Clean country name" sap:VirtualizedContainerService.HintSize="1383,60" sap2010:WorkflowViewState.IdRef="Assign_16">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[country]</OutArgument>
       </Assign.To>
@@ -90,7 +90,7 @@
         <InArgument x:TypeArguments="x:String">[country.Trim().ToUpper()]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="1383,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+    <Assign DisplayName="Initial risk level" sap:VirtualizedContainerService.HintSize="1383,60" sap2010:WorkflowViewState.IdRef="Assign_17">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[riskLevel]</OutArgument>
       </Assign.To>
@@ -98,7 +98,7 @@
         <InArgument x:TypeArguments="x:String">Low</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="1383,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+    <Assign DisplayName="initial risk reason" sap:VirtualizedContainerService.HintSize="1383,60" sap2010:WorkflowViewState.IdRef="Assign_18">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[riskReason]</OutArgument>
       </Assign.To>
@@ -106,40 +106,29 @@
         <InArgument x:TypeArguments="x:String">["No EU sanction found"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1383,252" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignorierte Aktivitäten" sap:VirtualizedContainerService.HintSize="242,174" sap2010:WorkflowViewState.IdRef="Sequence_5">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="XML" sap2010:Annotation.AnnotationText="Download the file from the server and store it in the downloads folder." BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="Download sanction list" EndPoint="[sanctionUrl]" sap:VirtualizedContainerService.HintSize="200,82" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" ResourcePath="[sanctionFile]" TimeoutMS="6000">
-            <ui:HttpClient.Attachments>
-              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-            </ui:HttpClient.Attachments>
-            <ui:HttpClient.Cookies>
-              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-            </ui:HttpClient.Cookies>
-            <ui:HttpClient.Headers>
-              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-            </ui:HttpClient.Headers>
-            <ui:HttpClient.Parameters>
-              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-            </ui:HttpClient.Parameters>
-            <ui:HttpClient.UrlSegments>
-              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-            </ui:HttpClient.UrlSegments>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:HttpClient>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
-    <ui:ReadTextFile Content="[xml]" DisplayName="Read downloaded file" FileName="[sanctionFile]" sap:VirtualizedContainerService.HintSize="1383,134" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="XML" sap2010:Annotation.AnnotationText="Download the file from the server and store it in the downloads folder." BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="Download sanction list" EndPoint="[sanctionUrl]" sap:VirtualizedContainerService.HintSize="1383,82" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" ResourcePath="[sanctionFile]" TimeoutMS="6000">
+      <ui:HttpClient.Attachments>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.Attachments>
+      <ui:HttpClient.Cookies>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.Cookies>
+      <ui:HttpClient.Headers>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.Headers>
+      <ui:HttpClient.Parameters>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.Parameters>
+      <ui:HttpClient.UrlSegments>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.UrlSegments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:HttpClient>
+    <ui:ReadTextFile Content="[xml]" DisplayName="Read sanction file" FileName="[sanctionFile]" sap:VirtualizedContainerService.HintSize="1383,134" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
     <ui:DeserializeXml DisplayName="Parse sanction list" sap:VirtualizedContainerService.HintSize="1383,60" sap2010:WorkflowViewState.IdRef="DeserializeXml_1" XMLDocument="[xmlDeserialized]" XMLString="[xml]" />
     <Assign sap2010:Annotation.AnnotationText="Removes possible XML namespaces in order to make parsing easier." DisplayName="Remove XML namespaces" sap:VirtualizedContainerService.HintSize="1383,104" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
@@ -154,26 +143,26 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <If sap2010:Annotation.AnnotationText="Read the sanction file depending on whether it is a legal entity or a person that is searched." Condition="[isIndividual]" sap:VirtualizedContainerService.HintSize="1383,1523" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="Read the sanction file depending on whether it is a legal entity or a person that is searched." Condition="[isIndividual]" sap:VirtualizedContainerService.HintSize="1383,1554" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Individual" sap:VirtualizedContainerService.HintSize="669,1311" sap2010:WorkflowViewState.IdRef="Sequence_12">
+        <Sequence DisplayName="Individual" sap:VirtualizedContainerService.HintSize="669,1373" sap2010:WorkflowViewState.IdRef="Sequence_12">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="627,1219" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[xmlDeserialized.Descendants(&quot;sanctionEntity&quot;).Where(Function(el) Not IsNothing(el.Element(&quot;subjectType&quot;)) And &quot;person&quot;.Equals(el.Element(&quot;subjectType&quot;).Attribute(&quot;code&quot;).Value))]">
+          <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through all natural person sanctions." DisplayName="For Each" sap:VirtualizedContainerService.HintSize="627,1281" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[xmlDeserialized.Descendants(&quot;sanctionEntity&quot;).Where(Function(el) Not IsNothing(el.Element(&quot;subjectType&quot;)) And &quot;person&quot;.Equals(el.Element(&quot;subjectType&quot;).Attribute(&quot;code&quot;).Value))]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="sxl:XElement">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="sxl:XElement" Name="individual" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Individual Text" sap:VirtualizedContainerService.HintSize="591,1084" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <Sequence DisplayName="Individual Text" sap:VirtualizedContainerService.HintSize="591,1115" sap2010:WorkflowViewState.IdRef="Sequence_11">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="individualFullName">
                       <Variable.Default>
@@ -235,7 +224,12 @@
                   </Assign>
                   <usa:LevenshteinAlgorithm DisplayName="Check name similarity" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="LevenshteinAlgorithm_5" OutputPercentange="[nameConfidence]" StringOne="[fullName]" StringTwo="[individualFullName]" />
                   <usa:LevenshteinAlgorithm DisplayName="Check nationality similarity" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="LevenshteinAlgorithm_6" OutputPercentange="[countryConfidence]" StringOne="[country]" StringTwo="[individualNationality]" />
-                  <If Condition="[(fullName.Contains(individualFullName) Or individualFullName.Contains(fullName) Or nameConfidence &gt;= confidenceLevel) And&#xD;&#xA;(String.IsNullOrWhiteSpace(country) Or String.IsNullOrWhiteSpace(individualNationality) Or country.Contains(individualNationality) Or individualNationality.Contains(country) Or countryConfidence &gt;= confidenceLevel)]" sap:VirtualizedContainerService.HintSize="549,468" sap2010:WorkflowViewState.IdRef="If_6">
+                  <If sap2010:Annotation.AnnotationText="Check for matches with name and country. Nationality is ignored if none was passed." Condition="[(fullName.Contains(individualFullName) Or individualFullName.Contains(fullName) Or nameConfidence &gt;= confidenceLevel) And&#xA;(String.IsNullOrWhiteSpace(country) Or String.IsNullOrWhiteSpace(individualNationality) Or country.Contains(individualNationality) Or individualNationality.Contains(country) Or countryConfidence &gt;= confidenceLevel)]" sap:VirtualizedContainerService.HintSize="549,499" sap2010:WorkflowViewState.IdRef="If_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
                       <Sequence sap:VirtualizedContainerService.HintSize="304,314" sap2010:WorkflowViewState.IdRef="Sequence_13">
                         <sap:WorkflowViewStateService.ViewState>
@@ -269,17 +263,22 @@
                 </Sequence>
               </ActivityAction>
             </ui:ForEach.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
           </ui:ForEach>
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Entity" sap:VirtualizedContainerService.HintSize="669,1342" sap2010:WorkflowViewState.IdRef="Sequence_16">
+        <Sequence DisplayName="Entity" sap:VirtualizedContainerService.HintSize="669,1373" sap2010:WorkflowViewState.IdRef="Sequence_16">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="627,1250" sap2010:WorkflowViewState.IdRef="ForEach`1_8" Values="[xmlDeserialized.Descendants(&quot;sanctionEntity&quot;).Where(Function(el) Not IsNothing(el.Element(&quot;subjectType&quot;)) And &quot;enterprise&quot;.Equals(el.Element(&quot;subjectType&quot;).Attribute(&quot;code&quot;).Value))]">
+          <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through all legal entity sanctions." DisplayName="For Each" sap:VirtualizedContainerService.HintSize="627,1281" sap2010:WorkflowViewState.IdRef="ForEach`1_8" Values="[xmlDeserialized.Descendants(&quot;sanctionEntity&quot;).Where(Function(el) Not IsNothing(el.Element(&quot;subjectType&quot;)) And &quot;enterprise&quot;.Equals(el.Element(&quot;subjectType&quot;).Attribute(&quot;code&quot;).Value))]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="sxl:XElement">
                 <ActivityAction.Argument>
@@ -339,7 +338,7 @@
                   </Assign>
                   <usa:LevenshteinAlgorithm DisplayName="Check name similarity" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="LevenshteinAlgorithm_7" OutputPercentange="[nameConfidence]" StringOne="[fullName.Trim().ToUpper()]" StringTwo="[entityFullName.Trim().ToUpper()]" />
                   <usa:LevenshteinAlgorithm DisplayName="Check country similarity" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="LevenshteinAlgorithm_8" OutputPercentange="[countryConfidence]" StringOne="[country.Trim().ToUpper()]" StringTwo="[entityCountry.Trim().ToUpper()]" />
-                  <If sap2010:Annotation.AnnotationText="Choose risk evaluation and reason if a match is found." Condition="[(fullName.Contains(entityFullname.Trim()) Or entityFullname.Contains(fullName.Trim()) Or nameConfidence &gt;= confidenceLevel) And&#xD;&#xA;(String.IsNullOrWhiteSpace(country) Or String.IsNullOrWhiteSpace(entityCountry) Or country.Contains(entityCountry) Or entityCountry.Contains(country) Or countryConfidence &gt;= confidenceLevel)]" sap:VirtualizedContainerService.HintSize="549,499" sap2010:WorkflowViewState.IdRef="If_8">
+                  <If sap2010:Annotation.AnnotationText="Check for matches with name and country. Country is ignored if none was passed." Condition="[(fullName.Contains(entityFullname.Trim()) Or entityFullname.Contains(fullName.Trim()) Or nameConfidence &gt;= confidenceLevel) And&#xA;(String.IsNullOrWhiteSpace(country) Or String.IsNullOrWhiteSpace(entityCountry) Or country.Contains(entityCountry) Or entityCountry.Contains(country) Or countryConfidence &gt;= confidenceLevel)]" sap:VirtualizedContainerService.HintSize="549,499" sap2010:WorkflowViewState.IdRef="If_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -378,6 +377,11 @@
                 </Sequence>
               </ActivityAction>
             </ui:ForEach.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
           </ui:ForEach>
         </Sequence>
       </If.Else>

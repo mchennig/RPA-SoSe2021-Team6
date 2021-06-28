@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>396,542</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>396,533</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Country_Risklist_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -61,7 +61,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Country_Risklist" sap:VirtualizedContainerService.HintSize="376,442" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Check the locl list of country risks." DisplayName="Country Risklist" sap:VirtualizedContainerService.HintSize="376,545" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="Länderliste.xlsx" Name="countryFile" />
       <Variable x:TypeArguments="sd:DataTable" Name="countryTable" />
@@ -69,9 +69,10 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Initial risk level" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[riskLevel]</OutArgument>
       </Assign.To>
@@ -79,11 +80,16 @@
         <InArgument x:TypeArguments="x:String">Unknown</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ReadRange AddHeaders="True" DataTable="[countryTable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A1:E194" SheetName="countries" WorkbookPath="[countryFile]" />
-    <ui:LookupDataTable LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" RowIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[countryTable]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnIndex="[1]" LookupValue="[countryName]" TargetColumnIndex="[4]">
+    <ui:ReadRange AddHeaders="True" DataTable="[countryTable]" DisplayName="Read Excel file" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A1:E194" SheetName="countries" WorkbookPath="[countryFile]" />
+    <ui:LookupDataTable LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" RowIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" sap2010:Annotation.AnnotationText="Search the table for entries with a matching country name and set the risk level like VLOOKUP." DataTable="[countryTable]" DisplayName="Lookup table for country" sap:VirtualizedContainerService.HintSize="334,94" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnIndex="[1]" LookupValue="[countryName]" TargetColumnIndex="[4]">
       <ui:LookupDataTable.CellValue>
         <OutArgument x:TypeArguments="x:String">[riskLevel]</OutArgument>
       </ui:LookupDataTable.CellValue>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:LookupDataTable>
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Country Risk Level: &quot; + riskLevel]" />
   </Sequence>

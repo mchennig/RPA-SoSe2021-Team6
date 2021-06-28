@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>703,2391</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>703,2422</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Europol_Wantedlist_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -61,7 +61,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Europol_Wantedlist" sap:VirtualizedContainerService.HintSize="683,2331" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Search the list of Europol's most wanted fugutives." DisplayName="Europol Wantedlist" sap:VirtualizedContainerService.HintSize="683,2424" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable()]" Name="extractDataTable" />
       <Variable x:TypeArguments="x:String" Default="[(lastName + &quot;, &quot; + firstName).Trim().ToUpper()]" Name="fullName" />
@@ -70,9 +70,10 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="641,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign DisplayName="Initial risk level" sap:VirtualizedContainerService.HintSize="641,60" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[riskLevel]</OutArgument>
       </Assign.To>
@@ -80,7 +81,7 @@
         <InArgument x:TypeArguments="x:String">Low</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="641,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign DisplayName="Initial risk level" sap:VirtualizedContainerService.HintSize="641,60" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[riskReason]</OutArgument>
       </Assign.To>
@@ -88,7 +89,7 @@
         <InArgument x:TypeArguments="x:String">["No matching Europol wanted person found"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Firefox" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="641,617" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[browser]" Url="https://eumostwanted.eu/">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Firefox" DisplayName="Open Europol search" sap:VirtualizedContainerService.HintSize="641,617" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[browser]" Url="https://eumostwanted.eu/">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -100,7 +101,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SetValue ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'INPUT  edit-search-bloc...'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[fullName]">
+            <ui:SetValue ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Enter name" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[fullName]">
               <ui:SetValue.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0687dacf848079a10d2d4ee1320d3785" Selector="&lt;webctrl id='edit-search-block-form--2' tag='INPUT' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -112,7 +113,7 @@
                 </ui:Target>
               </ui:SetValue.Target>
             </ui:SetValue>
-            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON  edit-submit'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Submit search" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -134,7 +135,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[extractDataTable]" DisplayName="Extract Structured Data 'OL'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column1' attr='text' name2='Column2' attr2='href'&gt;&lt;webctrl tag='li' class='search-result'/&gt;&lt;webctrl tag='h3' class='title' idx='1'/&gt;&lt;webctrl tag='a' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
+            <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[extractDataTable]" DisplayName="Extract result data" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column1' attr='text' name2='Column2' attr2='href'&gt;&lt;webctrl tag='li' class='search-result'/&gt;&lt;webctrl tag='h3' class='title' idx='1'/&gt;&lt;webctrl tag='a' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
               <ui:ExtractData.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="a141a804291c8700af3211c64c14c9a8" Selector="&lt;webctrl tag='OL' /&gt;" TimeoutMS="2000" WaitForReady="[WaitForReady.COMPLETE]" />
               </ui:ExtractData.Target>
@@ -143,13 +144,13 @@
         </ActivityAction>
       </ui:OpenBrowser.Body>
     </ui:OpenBrowser>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[extractDataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="641,1072" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Process found results" DataTable="[extractDataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="641,1134" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="591,924" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="591,955" sap2010:WorkflowViewState.IdRef="Sequence_7">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="currentURL" />
               <Variable x:TypeArguments="x:String" Name="currentName" />
@@ -160,17 +161,17 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="0" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="549,64" sap2010:WorkflowViewState.IdRef="GetRowItem_1" Row="[row]">
+            <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="0" DisplayName="Get Row name" sap:VirtualizedContainerService.HintSize="549,64" sap2010:WorkflowViewState.IdRef="GetRowItem_1" Row="[row]">
               <ui:GetRowItem.Value>
                 <OutArgument x:TypeArguments="x:String">[currentName]</OutArgument>
               </ui:GetRowItem.Value>
             </ui:GetRowItem>
-            <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="1" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="549,64" sap2010:WorkflowViewState.IdRef="GetRowItem_2" Row="[row]">
+            <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="1" DisplayName="Get Row url" sap:VirtualizedContainerService.HintSize="549,64" sap2010:WorkflowViewState.IdRef="GetRowItem_2" Row="[row]">
               <ui:GetRowItem.Value>
                 <OutArgument x:TypeArguments="x:String">[currentURL]</OutArgument>
               </ui:GetRowItem.Value>
             </ui:GetRowItem>
-            <Assign sap:VirtualizedContainerService.HintSize="549,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+            <Assign DisplayName="Clean current name" sap:VirtualizedContainerService.HintSize="549,60" sap2010:WorkflowViewState.IdRef="Assign_7">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[currentName]</OutArgument>
               </Assign.To>
@@ -178,8 +179,13 @@
                 <InArgument x:TypeArguments="x:String">[currentName.Trim().ToUpper()]</InArgument>
               </Assign.Value>
             </Assign>
-            <usa:LevenshteinAlgorithm DisplayName="Levenshtein algorithm" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="LevenshteinAlgorithm_2" OutputPercentange="[nameConfidence]" StringOne="[fullName]" StringTwo="[currentName]" />
-            <If Condition="[fullName.Contains(currentName) Or currentName.Contains(fullName) Or nameConfidence &gt;= confidenceLevel]" sap:VirtualizedContainerService.HintSize="549,462" sap2010:WorkflowViewState.IdRef="If_2">
+            <usa:LevenshteinAlgorithm DisplayName="Check name similarity" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="LevenshteinAlgorithm_2" OutputPercentange="[nameConfidence]" StringOne="[fullName]" StringTwo="[currentName]" />
+            <If sap2010:Annotation.AnnotationText="Check for a name match." Condition="[fullName.Contains(currentName) Or currentName.Contains(fullName) Or nameConfidence &gt;= confidenceLevel]" sap:VirtualizedContainerService.HintSize="549,493" sap2010:WorkflowViewState.IdRef="If_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
               <If.Then>
                 <Sequence sap:VirtualizedContainerService.HintSize="304,314" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
@@ -213,8 +219,13 @@
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:CloseApplication DisplayName="Close Application" sap:VirtualizedContainerService.HintSize="641,68" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+    <ui:CloseApplication DisplayName="Close browser" sap:VirtualizedContainerService.HintSize="641,68" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
       <ui:CloseApplication.Target>
         <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[browser]">
           <ui:Target.TimeoutMS>

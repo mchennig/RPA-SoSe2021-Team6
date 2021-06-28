@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>851,2997</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>851,3125</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>OFAC_Sanctionlist_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -64,7 +64,7 @@
       <AssemblyReference>UiPath.Interop</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="OFAC_Sanctionlist" sap:VirtualizedContainerService.HintSize="831,2937" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Check the general list of OFAC sanctions." DisplayName="OFAC Sanctionlist" sap:VirtualizedContainerService.HintSize="831,3025" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="[If(isIndividual, (lastName + &quot;, &quot; + firstName).Trim().toUpper(), firstName.Trim().toUpper())]" Name="fullName" />
       <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable()]" Name="extractDataTable" />
@@ -73,9 +73,10 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="789,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign DisplayName="Initial risk level" sap:VirtualizedContainerService.HintSize="789,60" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[riskLevel]</OutArgument>
       </Assign.To>
@@ -83,7 +84,7 @@
         <InArgument x:TypeArguments="x:String">Low</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="789,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign DisplayName="Initial risk reason" sap:VirtualizedContainerService.HintSize="789,60" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[riskReason]</OutArgument>
       </Assign.To>
@@ -91,7 +92,7 @@
         <InArgument x:TypeArguments="x:String">No OFAC sanction found</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Firefox" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="789,1114" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[browser]" Url="https://sanctionssearch.ofac.treas.gov/">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Firefox" DisplayName="Open OFAC sanction page" sap:VirtualizedContainerService.HintSize="789,1114" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[browser]" Url="https://sanctionssearch.ofac.treas.gov/">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -103,7 +104,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SetValue ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'INPUT  ctl00_MainConten...'" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[fullName]">
+            <ui:SetValue ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Enter name" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[fullName]">
               <ui:SetValue.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="15d7eb62e0b06c2bf999e375ddf9053b" Selector="&lt;webctrl id='ctl00_MainContent_txtLastName' tag='INPUT' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -115,7 +116,7 @@
                 </ui:Target>
               </ui:SetValue.Target>
             </ui:SetValue>
-            <ui:SetValue ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'INPUT  ctl00_MainConten...'" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[confidenceLevel.ToString()]">
+            <ui:SetValue ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Enter match confidence level" sap:VirtualizedContainerService.HintSize="713,134" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[confidenceLevel.ToString()]">
               <ui:SetValue.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="654a2ab0313391d49ee05204147450fc" Selector="&lt;webctrl id='ctl00_MainContent_Slider1_Boundcontrol' tag='INPUT' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -129,7 +130,7 @@
             </ui:SetValue>
             <If Condition="[isIndividual]" sap:VirtualizedContainerService.HintSize="713,283" sap2010:WorkflowViewState.IdRef="If_3">
               <If.Then>
-                <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  ctl00_MainConte...'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="Individual">
+                <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select individual" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="Individual">
                   <ui:SelectItem.Items>
                     <scg:List x:TypeArguments="x:String" Capacity="8">
                       <x:String>All</x:String>
@@ -152,7 +153,7 @@
                 </ui:SelectItem>
               </If.Then>
               <If.Else>
-                <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT  ctl00_MainConte...'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="Entity">
+                <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select enterprise" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="Entity">
                   <ui:SelectItem.Items>
                     <scg:List x:TypeArguments="x:String" Capacity="8">
                       <x:String>All</x:String>
@@ -175,7 +176,7 @@
                 </ui:SelectItem>
               </If.Else>
             </If>
-            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  ctl00_MainConten...'" sap:VirtualizedContainerService.HintSize="713,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click search button" sap:VirtualizedContainerService.HintSize="713,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -197,7 +198,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[extractDataTable]" DisplayName="Extract Structured Data 'TABLE  gvSearchResults'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="713,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
+            <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[extractDataTable]" DisplayName="Extract result table" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="713,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
               <ui:ExtractData.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ac8fe389cfce32118bad9b0100c0aae3" Selector="&lt;webctrl id='gvSearchResults' tag='TABLE' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
               </ui:ExtractData.Target>
@@ -212,13 +213,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OpenBrowser>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[extractDataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="789,1179" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <ui:ForEachRow CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Process found results and process them." DataTable="[extractDataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="789,1238" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="591,1030" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="591,1059" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Default="[String.Empty]" Name="currentName" />
               <Variable x:TypeArguments="x:Single" Default="0" Name="nameConfidence" />
@@ -245,7 +246,7 @@
                 <OutArgument x:TypeArguments="x:String">[currentProgram]</OutArgument>
               </ui:GetRowItem.Value>
             </ui:GetRowItem>
-            <Assign sap:VirtualizedContainerService.HintSize="549,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign DisplayName="Clean current name" sap:VirtualizedContainerService.HintSize="549,60" sap2010:WorkflowViewState.IdRef="Assign_4">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[currentName]</OutArgument>
               </Assign.To>
@@ -253,8 +254,13 @@
                 <InArgument x:TypeArguments="x:String">[currentName.Trim().ToUpper()]</InArgument>
               </Assign.Value>
             </Assign>
-            <usa:LevenshteinAlgorithm DisplayName="Levenshtein algorithm" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="LevenshteinAlgorithm_1" OutputPercentange="[nameConfidence]" StringOne="[fullName]" StringTwo="[currentName]" />
-            <If Condition="[fullName.Contains(currentName) Or currentName.Contains(fullName) Or nameConfidence &gt;= confidenceLevel]" sap:VirtualizedContainerService.HintSize="549,464" sap2010:WorkflowViewState.IdRef="If_2">
+            <usa:LevenshteinAlgorithm DisplayName="Check name similarity" sap:VirtualizedContainerService.HintSize="549,22" sap2010:WorkflowViewState.IdRef="LevenshteinAlgorithm_1" OutputPercentange="[nameConfidence]" StringOne="[fullName]" StringTwo="[currentName]" />
+            <If sap2010:Annotation.AnnotationText="Check for a name match." Condition="[fullName.Contains(currentName) Or currentName.Contains(fullName) Or nameConfidence &gt;= confidenceLevel]" sap:VirtualizedContainerService.HintSize="549,493" sap2010:WorkflowViewState.IdRef="If_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
               <If.Then>
                 <Sequence sap:VirtualizedContainerService.HintSize="304,314" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
@@ -288,8 +294,13 @@
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:CloseApplication DisplayName="Close Application" sap:VirtualizedContainerService.HintSize="789,68" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+    <ui:CloseApplication DisplayName="Close Browser" sap:VirtualizedContainerService.HintSize="789,68" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
       <ui:CloseApplication.Target>
         <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[browser]">
           <ui:Target.TimeoutMS>
@@ -301,7 +312,7 @@
         </ui:Target>
       </ui:CloseApplication.Target>
     </ui:CloseApplication>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="789,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;OFAC Risk Level: &quot; + riskLevel]" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="789,62" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;OFAC Risk Reason: &quot; + riskReason]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="789,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;OFAC Risk Level: &quot; + riskLevel]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="789,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;OFAC Risk Reason: &quot; + riskReason]" />
   </Sequence>
 </Activity>
