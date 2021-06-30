@@ -296,13 +296,13 @@
         </ui:ForEach>
       </If.Then>
       <If.Else>
-        <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through all UN sanctioned legal entities" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="562,1846" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[xmlDeserialized.Descendants(&quot;ENTITY&quot;)]">
+        <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through all UN sanctioned legal entities" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="562,1594" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[xmlDeserialized.Descendants(&quot;ENTITY&quot;)]">
           <ui:ForEach.Body>
             <ActivityAction x:TypeArguments="sxl:XElement">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="sxl:XElement" Name="entity" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Entity" sap:VirtualizedContainerService.HintSize="526,1680" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence DisplayName="Entity" sap:VirtualizedContainerService.HintSize="526,1428" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Default="[String.Empty]" Name="entityFullname" />
                   <Variable x:TypeArguments="x:Single" Default="0" Name="nameConfidence" />
@@ -358,11 +358,6 @@
                     <InArgument x:TypeArguments="x:String">[entity.Element("UN_LIST_TYPE").Value]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <If Condition="[entityFullname.Contains(&quot;RABITA&quot;)]" sap:VirtualizedContainerService.HintSize="484,212" sap2010:WorkflowViewState.IdRef="If_13">
-                  <If.Then>
-                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,62" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="HIT" />
-                  </If.Then>
-                </If>
                 <usa:LevenshteinAlgorithm DisplayName="Check name similarity" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="LevenshteinAlgorithm_3" OutputPercentange="[nameConfidence]" StringOne="[fullName.Trim().ToUpper()]" StringTwo="[entityFullname.Trim().toUpper()]" />
                 <usa:LevenshteinAlgorithm DisplayName="Check country similarity" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="LevenshteinAlgorithm_4" OutputPercentange="[countryConfidence]" StringOne="[country.Trim().ToUpper()]" StringTwo="[entityCountry.Trim().toUpper()]" />
                 <If sap2010:Annotation.AnnotationText="Check for matches with name and country. nationality is ignored if none was passed." Condition="[(fullName.Contains(entityFullname) Or entityFullname.Contains(fullname) Or nameConfidence &gt;= confidenceLevel) And &#xD;&#xA;(String.IsNullOrWhiteSpace(country) Or String.IsNullOrWhiteSpace(entityCountry) Or String.IsNullOrWhiteSpace(entityCountry) Or country.Contains(entityCountry) Or entityCountry.Contains(country) Or countryConfidence &gt;= confidenceLevel)]" sap:VirtualizedContainerService.HintSize="484,512" sap2010:WorkflowViewState.IdRef="If_12">
