@@ -9,6 +9,9 @@ The setup should be quite straightforward simply open the project in UIPath
 studio and run the `Main.xaml` file. In some cases it might be necessary to
 update a few variables which we will look at in the different workflows.
 
+Running the robot can take quite long (especially in Debug-Mode). Times of up to
+or over 20 minutes are possible.
+
 # Workflows
 The project is divided in several sub workflows to facilitate maintenance and
 improve readability. The different workflows are presented in the following
@@ -57,7 +60,8 @@ the supplied parameters. This workflow is able to search for organization
 related as well as for person related sanctions.
 
 ### Important Variables
-- `sanctionFile`: Path were the UN sanction XML file is stored
+- `sanctionFile`: Path were the UN sanction XML file is stored.  This variable
+**must** be adjusted to match the robot's environment.
 - `IN: isIndividual`: `True` if a person should be checked otherwise `False` for
 organizations
 - `IN: country`: Name of the organization's country or person's nationality
@@ -75,7 +79,8 @@ the supplied parameters. This workflow is able to search for organization
 related as well as for person related sanctions.
 
 ### Important Variables
-- `sanctionFile`: Path were the EU sanction XML file is stored
+- `sanctionFile`: Path were the EU sanction XML file is stored. This variable
+**must** be adjusted to match the robot's environment.
 - `IN: isIndividual`: `True` if a person should be checked otherwise `False` for
 organizations
 - `IN: country`: Name of the organization's country or person's nationality
