@@ -134,6 +134,15 @@
       "Assemblies": [
         "C:\\Users\\Marc\\.nuget\\packages\\uipathteam.string.activities/1.0.0\\lib/LevenshteinAlgorithm.dll"
       ]
+    },
+    {
+      "Package": {
+        "Id": "SimMetrics.Net",
+        "Version": "1.0.5"
+      },
+      "Assemblies": [
+        "C:\\Users\\Marc\\.nuget\\packages\\simmetrics.net/1.0.5\\lib/net45/SimMetrics.Net.dll"
+      ]
     }
   ],
   "Conflicts": [],
@@ -254,6 +263,11 @@
     "SharpZipLib": {
       "Id": "SharpZipLib",
       "Version": "1.0.0",
+      "Dependencies": []
+    },
+    "SimMetrics.Net": {
+      "Id": "SimMetrics.Net",
+      "Version": "1.0.5",
       "Dependencies": []
     },
     "System.Runtime.CompilerServices.Unsafe": {

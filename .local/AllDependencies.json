@@ -240,6 +240,19 @@
           "lib/net45/ICSharpCode.SharpZipLib.dll": {}
         }
       },
+      "SimMetrics.Net/1.0.5": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System"
+        ],
+        "compile": {
+          "lib/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/SimMetrics.Net.dll": {}
+        }
+      },
       "System.Runtime.CompilerServices.Unsafe/4.5.2": {
         "type": "package",
         "compile": {
@@ -1351,6 +1364,23 @@
         "sharpziplib.nuspec"
       ]
     },
+    "SimMetrics.Net/1.0.5": {
+      "sha512": "LaSDYOJDh2WncgRboqiWtk/Igqoim/LV7v808qBeWY/f36Ol5oEKguEYpKrWw5ap8KYP0SRXf7/v3zil9koY6Q==",
+      "type": "package",
+      "path": "simmetrics.net/1.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/SimMetrics.Net.dll",
+        "lib/net35/SimMetrics.Net.dll",
+        "lib/net40/SimMetrics.Net.dll",
+        "lib/net45/SimMetrics.Net.dll",
+        "lib/netstandard1.0/SimMetrics.Net.dll",
+        "lib/netstandard2.0/SimMetrics.Net.dll",
+        "simmetrics.net.1.0.5.nupkg.sha512",
+        "simmetrics.net.nuspec"
+      ]
+    },
     "System.Runtime.CompilerServices.Unsafe/4.5.2": {
       "sha512": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
       "type": "package",
@@ -1928,6 +1958,7 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
+      "SimMetrics.Net >= 1.0.5 <= 1.0.5",
       "UiPath.Excel.Activities >= 2.10.4 <= 2.10.4",
       "UiPath.Mail.Activities >= 1.7.2 <= 1.7.2",
       "UiPath.System.Activities >= 19.10.1 <= 19.10.1",
@@ -1950,6 +1981,11 @@
     "frameworks": {
       "net461": {
         "dependencies": {
+          "SimMetrics.Net": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.0.5, 1.0.5]"
+          },
           "UiPath.Excel.Activities": {
             "include": "Runtime",
             "target": "Package",
@@ -1983,5 +2019,14 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU3034",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'SimMetrics.Net 1.0.5' from source 'https://api.nuget.org/v3/index.json': This package is signed but not by a trusted signer.",
+      "libraryId": "SimMetrics.Net"
+    }
+  ]
 }
