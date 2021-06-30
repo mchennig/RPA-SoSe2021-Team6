@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1296,3777</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1296,3817</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>UN_Sanctionlist_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
