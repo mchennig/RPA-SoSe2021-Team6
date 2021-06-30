@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="715,1466" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="859,1542" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -53,7 +53,7 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="In this workflow you have to choose if you want to check a legal person or an organization. Depending on your decision you will be automatically redirected to another workflow." DisplayName="Identifying" sap:VirtualizedContainerService.HintSize="695,1406" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="In this workflow you have to choose if you want to check a legal person or an organization. Depending on your decision you will be automatically redirected to another workflow." DisplayName="Identifying" sap:VirtualizedContainerService.HintSize="839,1442" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="Yes" Name="LegalPerson" />
       <Variable x:TypeArguments="sd:DataTable" Name="resultData" />
@@ -65,7 +65,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog DisplayName="Choice legal person or organization" sap:VirtualizedContainerService.HintSize="653,51" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Do you want to check a legal person?" Options="[{&quot;Yes&quot;,&#xA;&quot;No&quot;&#xA;}]" Title="Legal Person">
+    <ui:InputDialog DisplayName="Choice legal person or organization" sap:VirtualizedContainerService.HintSize="797,51" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Do you want to check a legal person?" Options="[{&quot;Yes&quot;,&#xA;&quot;No&quot;&#xA;}]" Title="Legal Person">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[LegalPerson]</OutArgument>
       </ui:InputDialog.Result>
@@ -76,7 +76,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InputDialog>
-    <ui:BuildDataTable DataTable="[resultData]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="653,51" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Element&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Country_x0020_Risk_x0020_Level&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;UN_x0020_Risk_x0020_Level&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;UN_x0020_Risk_x0020_Reason&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;EU_x0020_Risk_x0020_Level&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;EU_x0020_Risk_x0020_Reason&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;OFAC_x0020_Risk_x0020_Level&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;OFAC_x0020_Risk_x0020_Reason&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Interpol_x0020_Risk_x0020_Level&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Interpol_x0020_Risk_x0020_Reason&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Europol_x0020_Risk_x0020_Level&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Europol_x0020_Risk_x0020_Reason&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+    <ui:BuildDataTable DataTable="[resultData]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="797,51" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Element&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Country_x0020_Risk_x0020_Level&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;UN_x0020_Risk_x0020_Level&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;UN_x0020_Risk_x0020_Reason&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;EU_x0020_Risk_x0020_Level&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;EU_x0020_Risk_x0020_Reason&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;OFAC_x0020_Risk_x0020_Level&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;OFAC_x0020_Risk_x0020_Reason&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Interpol_x0020_Risk_x0020_Level&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Interpol_x0020_Risk_x0020_Reason&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Europol_x0020_Risk_x0020_Level&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Europol_x0020_Risk_x0020_Reason&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -84,9 +84,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <If Condition="[LegalPerson = &quot;No&quot;]" DisplayName="Decide if you want to identify a legal person or an organization" sap:VirtualizedContainerService.HintSize="653,999" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[LegalPerson = &quot;No&quot;]" DisplayName="Decide if you want to identify a legal person or an organization" sap:VirtualizedContainerService.HintSize="797,1035" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence DisplayName="Natural Person" sap:VirtualizedContainerService.HintSize="304,851" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Natural Person" sap:VirtualizedContainerService.HintSize="376,887" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Default="[String.Empty]" Name="firstName" />
             <Variable x:TypeArguments="x:String" Default="[String.Empty]" Name="lastName" />
@@ -110,7 +110,7 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Identify Person workflow" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Identify Person.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Identify Person workflow" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Identify Person.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <OutArgument x:TypeArguments="x:String" x:Key="firstName">[firstName]</OutArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="lastName">[lastName]</OutArgument>
@@ -124,7 +124,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
             </Assign.To>
@@ -132,7 +132,7 @@
               <InArgument x:TypeArguments="x:String">[firstName + lastName + "_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".xlsx"]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check UN sanctions" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="UN Sanctionlist.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check UN sanctions" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="UN Sanctionlist.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="country">[nationality]</InArgument>
               <InArgument x:TypeArguments="x:Boolean" x:Key="isIndividual">True</InArgument>
@@ -149,7 +149,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check EU santions" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="EU Sanctionlist.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check EU santions" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="EU Sanctionlist.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:Boolean" x:Key="isIndividual">True</InArgument>
               <InArgument x:TypeArguments="x:Single" x:Key="confidenceLevel">80</InArgument>
@@ -166,23 +166,23 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check OFAC sanctions" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="OFAC Sanctionlist.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check OFAC sanctions" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="OFAC Sanctionlist.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="firstName">[firstName]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="lastName">[lastName]</InArgument>
-              <InArgument x:TypeArguments="x:Single" x:Key="confidenceLevel">90</InArgument>
+              <InArgument x:TypeArguments="x:Single" x:Key="confidenceLevel">80</InArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="riskLevel">[ofacRiskLevel]</OutArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="riskReason">[ofacRiskReason]</OutArgument>
               <InArgument x:TypeArguments="x:Boolean" x:Key="isIndividual">True</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check Interpol red notices" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Interpol Wantedlist.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check Interpol red notices" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Interpol Wantedlist.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="firstName">[firstName]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="lastName">[lastName]</InArgument>
@@ -198,7 +198,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check europol fugitives" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Europol Wantedlist.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check europol fugitives" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Europol Wantedlist.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="firstName">[firstName]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="lastName">[lastName]</InArgument>
@@ -213,7 +213,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check country risks" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Country Risklist.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check country risks" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Country Risklist.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="countryName">[nationality]</InArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="riskLevel">[countryRiskLevel]</OutArgument>
@@ -225,11 +225,11 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{firstName + &quot; &quot; + lastName, countryRiskLevel, unRiskLevel, unRiskReason, euRiskLevel, euRiskReason, ofacRiskLevel, ofacRiskReason, interpolRiskLevel, interpolRiskReason, europolRiskLevel, europolRiskReason }]" DataTable="[resultData]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{firstName + &quot; &quot; + lastName, countryRiskLevel, unRiskLevel, unRiskReason, euRiskLevel, euRiskReason, ofacRiskLevel, ofacRiskReason, interpolRiskLevel, interpolRiskReason, europolRiskLevel, europolRiskReason }]" DataTable="[resultData]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Legal Person" sap:VirtualizedContainerService.HintSize="304,817" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Legal Person" sap:VirtualizedContainerService.HintSize="376,853" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Default="[String.Empty]" Name="organizationCountry" />
             <Variable x:TypeArguments="x:String" Default="[String.Empty]" Name="organizationAddress" />
@@ -264,7 +264,7 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Identify organization workflow" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Identify organization.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Identify organization workflow" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Identify organization.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <OutArgument x:TypeArguments="x:String" x:Key="organizationName">[organizationName]</OutArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="organizationCountry">[organizationCountry]</OutArgument>
@@ -282,7 +282,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
             </Assign.To>
@@ -290,7 +290,7 @@
               <InArgument x:TypeArguments="x:String">[organizationName + "_" + DateTime.Now.ToString("yyyy-MM-dd_H-mm-ss") + ".xlsx"]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check org. country risks" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="Country Risklist.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check org. country risks" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="Country Risklist.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="countryName">[organizationCountry]</InArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="riskLevel">[countryRiskLevelOrg]</OutArgument>
@@ -302,7 +302,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check org. UN sanctions" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="UN Sanctionlist.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check org. UN sanctions" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="UN Sanctionlist.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="country">[organizationCountry]</InArgument>
               <InArgument x:TypeArguments="x:Boolean" x:Key="isIndividual">False</InArgument>
@@ -319,7 +319,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check org. EU sanctions" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="EU Sanctionlist.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check org. EU sanctions" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="EU Sanctionlist.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:Boolean" x:Key="isIndividual">False</InArgument>
               <InArgument x:TypeArguments="x:Single" x:Key="confidenceLevel">80</InArgument>
@@ -336,24 +336,24 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check org. OFAC sanctions" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="OFAC Sanctionlist.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Check org. OFAC sanctions" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="OFAC Sanctionlist.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="firstName">[organizationName]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="lastName">[String.Empty]</InArgument>
-              <InArgument x:TypeArguments="x:Single" x:Key="confidenceLevel">90</InArgument>
+              <InArgument x:TypeArguments="x:Single" x:Key="confidenceLevel">80</InArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="riskLevel">[ofacRiskLevelOrg]</OutArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="riskReason">[ofacRiskReasonOrg]</OutArgument>
               <InArgument x:TypeArguments="x:Boolean" x:Key="isIndividual">False</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{organizationName, countryRiskLevelOrg, unRiskLevelOrg, unRiskReasonOrg, euRiskLevelOrg, euRiskReasonOrg, ofacRiskLevelOrg, ofacRiskReasonOrg, String.Empty, String.Empty, String.Empty, String.Empty }]" DataTable="[resultData]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
-          <If sap2010:Annotation.AnnotationText="If we have a known business partner (BP) check him like a natural person." Condition="[String.IsNullOrWhiteSpace(businessPartnerFirstName) And String.IsNullOrWhiteSpace(businessPartnerLastName)]" sap:VirtualizedContainerService.HintSize="262,108" sap2010:WorkflowViewState.IdRef="If_2">
+          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{organizationName, countryRiskLevelOrg, unRiskLevelOrg, unRiskReasonOrg, euRiskLevelOrg, euRiskReasonOrg, ofacRiskLevelOrg, ofacRiskReasonOrg, String.Empty, String.Empty, String.Empty, String.Empty }]" DataTable="[resultData]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+          <If sap2010:Annotation.AnnotationText="If we have a known business partner (BP) check him like a natural person." Condition="[String.IsNullOrWhiteSpace(businessPartnerFirstName) And String.IsNullOrWhiteSpace(businessPartnerLastName)]" sap:VirtualizedContainerService.HintSize="334,108" sap2010:WorkflowViewState.IdRef="If_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -469,7 +469,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:WriteRange AddHeaders="True" DataTable="[resultData]" DisplayName="Write Documentation" sap:VirtualizedContainerService.HintSize="653,51" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Risk Evaluation" StartingCell="A1" WorkbookPath="[fileName]">
+    <ui:WriteRange AddHeaders="True" DataTable="[resultData]" DisplayName="Write Documentation" sap:VirtualizedContainerService.HintSize="797,51" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Risk Evaluation" StartingCell="A1" WorkbookPath="[fileName]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
