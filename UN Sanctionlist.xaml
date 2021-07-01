@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1296,3817</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1296,3768</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>UN_Sanctionlist_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -66,7 +66,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Download and check the list of UN sanctions" DisplayName="UN Sanctionlist" sap:VirtualizedContainerService.HintSize="1276,3717" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Download and check the list of UN sanctions" DisplayName="UN Sanctionlist" sap:VirtualizedContainerService.HintSize="1276,3708" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="C:\Users\Marc\Downloads\un_sanctions.xml" Name="sanctionFile" />
       <Variable x:TypeArguments="x:String" Name="xml" />
@@ -104,7 +104,7 @@
         <InArgument x:TypeArguments="x:String">["No UN sanction found"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="XML" sap2010:Annotation.AnnotationText="Download the file from the server and store it in the downloads folder." BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="Download sanction list" EndPoint="[sanctionUrl]" sap:VirtualizedContainerService.HintSize="1234,82" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" ResourcePath="[sanctionFile]" TimeoutMS="6000">
+    <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="XML" sap2010:Annotation.AnnotationText="Download the file from the server and store it in the downloads folder." BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="Download sanction list" EndPoint="[sanctionUrl]" sap:VirtualizedContainerService.HintSize="1234,79" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" ResourcePath="[sanctionFile]" TimeoutMS="10000">
       <ui:HttpClient.Attachments>
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.Attachments>
@@ -126,9 +126,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:HttpClient>
-    <ui:ReadTextFile Content="[xml]" DisplayName="Read sanction file" FileName="[sanctionFile]" sap:VirtualizedContainerService.HintSize="1234,134" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <ui:ReadTextFile Content="[xml]" DisplayName="Read sanction file" FileName="[sanctionFile]" sap:VirtualizedContainerService.HintSize="1234,132" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
     <ui:DeserializeXml DisplayName="Deserialize XML" sap:VirtualizedContainerService.HintSize="1234,60" sap2010:WorkflowViewState.IdRef="DeserializeXml_1" XMLDocument="[xmlDeserialized]" XMLString="[xml]" />
-    <Assign sap2010:Annotation.AnnotationText="Removes possible XML namespaces in order to make parsing easier." DisplayName="Remove XML namespaces" sap:VirtualizedContainerService.HintSize="1234,104" sap2010:WorkflowViewState.IdRef="Assign_16">
+    <Assign sap2010:Annotation.AnnotationText="Removes possible XML namespaces in order to make parsing easier." DisplayName="Remove XML namespaces" sap:VirtualizedContainerService.HintSize="1234,102" sap2010:WorkflowViewState.IdRef="Assign_16">
       <Assign.To>
         <OutArgument x:TypeArguments="sxl:XDocument">[xmlDeserialized]</OutArgument>
       </Assign.To>
@@ -141,7 +141,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <If Condition="[isIndividual]" sap:VirtualizedContainerService.HintSize="1234,2581" sap2010:WorkflowViewState.IdRef="If_9">
+    <If Condition="[isIndividual]" sap:VirtualizedContainerService.HintSize="1234,2579" sap2010:WorkflowViewState.IdRef="If_9">
       <If.Then>
         <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through all UN sanctioned natural persons. " DisplayName="For Each" sap:VirtualizedContainerService.HintSize="627,2431" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[xmlDeserialized.Descendants(&quot;INDIVIDUAL&quot;)]">
           <ui:ForEach.Body>
@@ -360,7 +360,7 @@
                 </Assign>
                 <usa:LevenshteinAlgorithm DisplayName="Check name similarity" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="LevenshteinAlgorithm_3" OutputPercentange="[nameConfidence]" StringOne="[fullName.Trim().ToUpper()]" StringTwo="[entityFullname.Trim().toUpper()]" />
                 <usa:LevenshteinAlgorithm DisplayName="Check country similarity" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="LevenshteinAlgorithm_4" OutputPercentange="[countryConfidence]" StringOne="[country.Trim().ToUpper()]" StringTwo="[entityCountry.Trim().toUpper()]" />
-                <If sap2010:Annotation.AnnotationText="Check for matches with name and country. nationality is ignored if none was passed." Condition="[(fullName.Contains(entityFullname) Or entityFullname.Contains(fullname) Or nameConfidence &gt;= confidenceLevel) And &#xD;&#xA;(String.IsNullOrWhiteSpace(country) Or String.IsNullOrWhiteSpace(entityCountry) Or String.IsNullOrWhiteSpace(entityCountry) Or country.Contains(entityCountry) Or entityCountry.Contains(country) Or countryConfidence &gt;= confidenceLevel)]" sap:VirtualizedContainerService.HintSize="484,512" sap2010:WorkflowViewState.IdRef="If_12">
+                <If sap2010:Annotation.AnnotationText="Check for matches with name and country. nationality is ignored if none was passed." Condition="[(fullName.Contains(entityFullname) Or entityFullname.Contains(fullname) Or nameConfidence &gt;= confidenceLevel) And &#xA;(String.IsNullOrWhiteSpace(country) Or String.IsNullOrWhiteSpace(entityCountry) Or String.IsNullOrWhiteSpace(entityCountry) Or country.Contains(entityCountry) Or entityCountry.Contains(country) Or countryConfidence &gt;= confidenceLevel)]" sap:VirtualizedContainerService.HintSize="484,512" sap2010:WorkflowViewState.IdRef="If_12">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>

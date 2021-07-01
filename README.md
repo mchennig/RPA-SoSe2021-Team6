@@ -9,8 +9,10 @@ The setup should be quite straightforward simply open the project in UIPath
 studio and run the `Main.xaml` file. In some cases it might be necessary to
 update a few variables which we will look at in the different workflows.
 
-Running the robot can take quite long (especially in Debug-Mode). Times of up to
-or over 20 minutes are possible.
+Running the robot can take quite long, especially in Debug-Mode. Times of up to
+or over 20 minutes are possible. Please note that if new legal entities should
+be checked they have to be added with name to `Unternehmenslist.xlsx`, which
+contains working mock data for a selection of organizations.
 
 # Workflows
 The project is divided in several sub workflows to facilitate maintenance and
@@ -24,7 +26,7 @@ consolidates the results into an Excel file.
 ### Important Variables
 - `fileName`: Contains the path of the output file. By default contains the name
 of the organization or person and a timestamp and is stored in the current
-working directory
+working directory of the robot.
 
 ## Identify Person
 Requests user input for the check of natural persons. Displays the UI and
@@ -43,7 +45,8 @@ a mocked Excel file.
 
 ### Important Variables
 - `organizationFile`: Path to the organization file with the mapping of
-organizations to BPs and additional information
+organizations to BPs and additional information. If the file should be placed
+somwhere else, changes might be neccessary.
 - `OUT: organizationName`: Contains the organization's name
 - `OUT: organizationCommercialRegister`: Contains the number of the trade
 register entry
