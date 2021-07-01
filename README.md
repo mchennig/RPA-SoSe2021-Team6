@@ -1,8 +1,8 @@
 # Introduction
 This project is a robot extracting and analyzing KYC (Know-Your-Customer)
 relevant information from various online sources. These sources include:
-- UN, EU and OFAC sanctions for legal and natural persons
-- Europol and Interpol wanted lists for natural persons
+- UN, EU and OFAC sanctions for legal and natural people
+- Europol and Interpol wanted lists for natural people
 - General country risk assessment
 
 The setup should be quite straightforward simply open the project in UIPath
@@ -43,7 +43,7 @@ returns the names, birth date and nationality.
 - `OUT: birthDate`: Contains the entered birthDate
 
 ## Identify Organization
-Requests user input for the check of legal persons or organizations. Displays
+Requests user input for the check of legal people or organizations. Displays
 the UI and reads information about beneficial owners and business partners from
 a mocked Excel file.
 
@@ -73,7 +73,7 @@ related as well as for person related sanctions.
 organizations
 - `IN: country`: Name of the organization's country or person's nationality
 - `IN: firstName`: Name of the organization or first name of the person
-- `IN: lastName`: Last name of the person (persons only)
+- `IN: lastName`: Last name of the person (people only)
 - `IN: confidenceLevel`: Similarity percentage for string comparisons
 (default: 90)
 - `OUT: riskLevel`: Risk level of the person or organization
@@ -92,7 +92,7 @@ related as well as for person related sanctions.
 organizations
 - `IN: country`: Name of the organization's country or person's nationality
 - `IN: firstName`: Name of the organization or first name of the person
-- `IN: lastName`: Last name of the person (persons only)
+- `IN: lastName`: Last name of the person (people only)
 - `IN: confidenceLevel`: Similarity percentage for string comparisons
 (default: 90)
 - `OUT: riskLevel`: Risk level of the person or organization
@@ -102,7 +102,7 @@ an EU sanction code and list
 ## OFAC Sanction List
 Checks the online database of OFAC (Office of foreign assets control) sanctions
 for matches with the supplied parameters. This workflow is able to search for
-organization related as well as for person related sanctions. If a different
+organization related as well as for person related sanctions. If a different Browser
 than Firefox should be used it is necessary to change the `BrowserType` of the
 `Open OFAC sanction page` activity to the corresponding browser.
 
@@ -111,16 +111,16 @@ than Firefox should be used it is necessary to change the `BrowserType` of the
 organizations
 - `IN: country`: Name of the organization's country or person's nationality
 - `IN: firstName`: Name of the organization or first name of the person
-- `IN: lastName`: Last name of the person (persons only)
+- `IN: lastName`: Last name of the person (people only)
 - `IN: confidenceLevel`: Similarity percentage for string comparisons
 (default: 80)
 - `OUT: riskLevel`: Risk level of the person or organization
 - `OUT: riskReason`: Reason for the assigned risk level. Contains a reference to
-an OFAC the corresponding list and rekevant program
+an OFAC the corresponding list and relevant program
 
 ## Interpol Wanted List
 Checks Interpol's online database for red notices with similar person names.
-This workflow only works for persons. If a different
+This workflow only works for people. If a different Browser
 than Firefox should be used it is necessary to change the `BrowserType` of the
 `Open Interpol red notices` activity to the corresponding browser.
 
@@ -136,7 +136,7 @@ possible Interpol entry
 
 ## Europol Wanted List
 Checks Eurpol's online database for fugitives with similar names. This workflow
-only works for persons. If a different
+only works for people. If a different Browser
 than Firefox should be used it is necessary to change the `BrowserType` of the
 `Open Europol search` activity to the corresponding browser.
 
