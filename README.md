@@ -14,6 +14,10 @@ or over 20 minutes are possible. Please note that if new legal entities should
 be checked they have to be added with name to `Unternehmenslist.xlsx`, which
 contains working mock data for a selection of organizations.
 
+We are currently using Firefox as a browser for executing the online checkings,
+with the compulsory UIPath Add-On. Microsoft Excel has to be installed for the
+robot to work correctly.
+
 # Workflows
 The project is divided in several sub workflows to facilitate maintenance and
 improve readability. The different workflows are presented in the following
@@ -98,7 +102,9 @@ an EU sanction code and list
 ## OFAC Sanction List
 Checks the online database of OFAC (Office of foreign assets control) sanctions
 for matches with the supplied parameters. This workflow is able to search for
-organization related as well as for person related sanctions.
+organization related as well as for person related sanctions. If a different
+than Firefox should be used it is necessary to change the `BrowserType` of the
+`Open OFAC sanction page` activity to the corresponding browser.
 
 ### Important Variables
 - `IN: isIndividual`: `True` if a person should be checked otherwise `False` for
@@ -114,7 +120,9 @@ an OFAC the corresponding list and rekevant program
 
 ## Interpol Wanted List
 Checks Interpol's online database for red notices with similar person names.
-This workflow only works for persons.
+This workflow only works for persons. If a different
+than Firefox should be used it is necessary to change the `BrowserType` of the
+`Open Interpol red notices` activity to the corresponding browser.
 
 ### Important Variables
 - `IN: country`: The person's nationality
@@ -128,7 +136,9 @@ possible Interpol entry
 
 ## Europol Wanted List
 Checks Eurpol's online database for fugitives with similar names. This workflow
-only works for persons.
+only works for persons. If a different
+than Firefox should be used it is necessary to change the `BrowserType` of the
+`Open Europol search` activity to the corresponding browser.
 
 ### Important Variables
 - `IN: firstName`: First name of the person
